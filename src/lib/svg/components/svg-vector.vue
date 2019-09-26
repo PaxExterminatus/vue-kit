@@ -23,8 +23,14 @@ export default {
     beforeMount()
     {
         let nameType = typeCheck(this.name);
-
         if (nameType.isArray)
+            this.applyVectors();
+        else if (nameType.isString)
+            this.applyVector();
+    },
+
+    methods:{
+        applyVectors()
         {
             let maxsize = 0;
             this.name.forEach( name =>
@@ -37,14 +43,15 @@ export default {
                 this.html += vector.html;
                 this.box = `0 0 ${maxsize} ${maxsize}`;
             });
-        }
-        else if (nameType.isString)
+        },
+
+        applyVector()
         {
             const icon = vectors[this.name];
             this.cssClass += icon.cssClass;
             this.box = icon.box;
             this.html = icon.html;
         }
-    },
+    }
 }
 </script>
