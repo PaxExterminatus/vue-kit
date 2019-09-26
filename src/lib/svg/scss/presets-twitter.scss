@@ -1,0 +1,30 @@
+//Twitter presets
+
+////Colors
+$twitter-fill: #fff;
+$twitter-bg: #1da1f2;
+
+////Mixins
+@mixin icon-twitter {
+  fill: $twitter-fill;
+  border-radius: 50%;
+  background-color: $twitter-bg;
+}
+
+//Vectors
+.vector.twitter {
+  transform: scale(0.5);
+  transform-origin: 50%;
+}
+
+////Icons
+.icon.twitter {
+  @include icon-twitter;
+}
+
+.icon.twitter-plus {
+  @include icon-twitter;
+  .vector.plus {
+    transform: matrix(5.5, 0, 0, 5.5, 355, 355);
+  }
+}
