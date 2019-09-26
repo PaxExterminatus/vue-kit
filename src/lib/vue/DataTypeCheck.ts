@@ -13,17 +13,25 @@ export class DataTypeCheck
         this.val = value;
     }
 
-    isString()
+    get isString()
+    {
+        return typeof this.val === 'string' || this.val instanceof String;
+    }
+    orString()
     {
         if (!this.result)
-            this.result = typeof this.val === 'string' || this.val instanceof String;
+            this.result = this.isString;
         return this;
     }
 
-    isArray()
+    get isArray()
+    {
+        return this.val instanceof Array || Array.isArray(this.val);
+    }
+    orArray()
     {
         if (!this.result)
-            this.result = this.val instanceof Array || Array.isArray(this.val);
+            this.result = this.isArray;
         return this;
     }
 

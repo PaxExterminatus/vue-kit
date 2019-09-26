@@ -10,7 +10,7 @@ export default {
     props: {
         name: {
             required: true,
-            validator: val => typeCheck(val).isString().isArray().result,
+            validator: val => typeCheck(val).orString().orArray().result,
         },
     },
 
@@ -24,7 +24,7 @@ export default {
     {
         let nameType = typeCheck(this.name);
 
-        if (nameType.isArray().result)
+        if (nameType.isArray)
         {
             let maxsize = 0;
             this.name.forEach( name =>
@@ -38,7 +38,7 @@ export default {
                 this.box = `0 0 ${maxsize} ${maxsize}`;
             });
         }
-        else if (nameType.isString().result)
+        else if (nameType.isString)
         {
             const icon = vectors[this.name];
             this.cssClass += icon.cssClass;
