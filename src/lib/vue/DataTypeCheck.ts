@@ -1,8 +1,9 @@
-export function validation(val : any) : PropsValidation {
-    return new PropsValidation(val);
+export function typeCheck(val : any) : DataTypeCheck
+{
+    return new DataTypeCheck(val);
 }
 
-export class PropsValidation
+export class DataTypeCheck
 {
     private readonly val : any;
     result = false;
@@ -22,7 +23,7 @@ export class PropsValidation
     isArray()
     {
         if (!this.result)
-            this.result = this.val instanceof Array;
+            this.result = this.val instanceof Array || Array.isArray(this.val);
         return this;
     }
 

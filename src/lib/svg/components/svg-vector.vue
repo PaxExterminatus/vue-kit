@@ -5,12 +5,12 @@
 <script>
 import {conf} from 'svg/options'
 import vectors from '../vectors'
-import {validation} from '../../vue/PropsValidation'
+import {typeCheck} from '../../vue/DataTypeCheck'
 export default {
     props: {
         name: {
             required: true,
-            validator: val => validation(val).isString().isArray().result,
+            validator: val => typeCheck(val).isString().isArray().result,
         },
     },
 
@@ -22,7 +22,9 @@ export default {
 
     beforeMount()
     {
-        if (this.name instanceof Array)
+        let nameType = typeCheck(this.name);
+
+        if (nameType.isArray().result)
         {
             let maxsize = 0;
             this.name.forEach( name =>
@@ -36,7 +38,7 @@ export default {
                 this.box = `0 0 ${maxsize} ${maxsize}`;
             });
         }
-        else if (typeof this.name === 'string' || this.name instanceof String)
+        else if (nameType.isString().result)
         {
             const icon = vectors[this.name];
             this.cssClass += icon.cssClass;
