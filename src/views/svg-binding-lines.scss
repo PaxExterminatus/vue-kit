@@ -1,0 +1,33 @@
+.page-svg-binding-lines {
+  .layout-icons, .layout-lines, .svg-binding-lines-cmp {
+    border: solid 1px;
+  }
+  .layout-icons {
+    border-color: red;
+    position: relative;
+    height: 300px;
+  }
+  .layout-lines {
+    border-color: green;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .icon {
+    margin: 35px;
+  }
+  .icon-item-01 {
+    display: block;
+  }
+  .icon-item-02 {
+    display: block;
+    margin-left: 100px;
+  }
+  .icon-item-03 {
+    display: block;
+  }
+  .svg-binding-lines-cmp {
+    border-color: rebeccapurple;
+    height: 100%;
+  }
+}

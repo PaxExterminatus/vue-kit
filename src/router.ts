@@ -10,5 +10,6 @@ export default new Router({
   routes: [
     { path: '/', name: 'home', component: Home },
     { path: '/svg-vectors', name: 'svgVectors', component: () => import('./views/svg-vectors.vue') },
+    { path: '/svg-binding-lines', name: 'svgBindingLines', component: () => import('./views/svg-binding-lines.vue') },
   ]
 })

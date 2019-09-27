@@ -1,6 +1,15 @@
 @import "lib/svg/scss/presets-twitter";
+@import "views/svg-binding-lines";
+
+* {
+  box-sizing: border-box;
+}
 
 .icon {
   width: 48px;
   height: 48px;
+}
+
+.content {
+  flex: 1;
 }

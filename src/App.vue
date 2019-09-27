@@ -4,6 +4,7 @@
     <div id="nav" class="navigation">
       <div><router-link to="/">home</router-link></div>
       <div><router-link to="/svg-vectors">svg-vectors</router-link></div>
+      <div><router-link to="/svg-binding-lines">svg-binding-lines</router-link></div>
     </div>
 
     <div class="content">
