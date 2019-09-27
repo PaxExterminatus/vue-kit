@@ -27,7 +27,7 @@
   }
   .navigation
   {
-    max-width: 180px;
+    max-width: 250px;
     padding: 30px;
     border-right: solid 1px #42b983;
     a

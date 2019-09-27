@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import svgVector from 'svg/components/svg-vector'
+import svgVector from 'svg/components/SvgVector'
 export default {
     components: {svgVector},
     data(){return{
