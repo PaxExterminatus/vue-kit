@@ -4,7 +4,10 @@
             <svg-binding-line class="layout-lines" v-if="bindingLineProps" :opt="bindingLineProps"/>
             <svg-vector class="icon-item-01 icon-js" name="twitter"/>
             <svg-vector class="icon-item-02 icon-js twitter-plus" :name="['twitter','plus']"/>
-            <svg-vector class="icon-item-03 icon-js " name="twitter"/>
+            <svg-vector class="icon-item-01 icon-js " name="twitter"/>
+            <svg-vector class="icon-item-01 icon-js " name="twitter"/>
+            <svg-vector class="icon-item-02 icon-js twitter-plus" :name="['twitter','plus']"/>
+            <svg-vector class="icon-item-03 icon-js twitter-plus" :name="['twitter','plus']"/>
         </div>
     </div>
 </template>

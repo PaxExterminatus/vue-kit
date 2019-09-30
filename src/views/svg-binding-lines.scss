@@ -5,7 +5,7 @@
   .layout-icons {
     border-color: red;
     position: relative;
-    height: 300px;
+    height: 600px;
   }
   .layout-lines {
     border-color: green;
@@ -15,17 +15,17 @@
     //z-index: -1;
   }
   .icon {
+    display: block;
     margin: 35px;
   }
   .icon-item-01 {
-    display: block;
+    margin-left: 60px;
   }
   .icon-item-02 {
-    display: block;
     margin-left: 100px;
   }
   .icon-item-03 {
-    display: block;
+    margin-left: 200px;
   }
   .binding-line-cmp {
     height: 100%;
