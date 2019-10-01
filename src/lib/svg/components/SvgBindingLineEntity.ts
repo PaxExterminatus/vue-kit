@@ -49,6 +49,14 @@ export class SvgBindingLineEntity
         }
         return str;
     }
+
+    getRandomIntInclusive( min : number, max : number)
+    {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
     get curvesBezierQuadraticDouble ()
     {
         let str = '', x = 0, y = 0;
@@ -61,7 +69,10 @@ export class SvgBindingLineEntity
                 pr = this.svgPoints[i - 1];
                 x = this.linePoint(p.x, pr.x) / 2;
                 y = this.linePoint(p.y, pr.y) / 2;
-                str += `q${-35} ${50},${x} ${y} t${x} ${y}`;
+                let directionX, directionY;
+                directionX = (p.x > pr.x ? -35 : 35) + this.getRandomIntInclusive(1,20);
+                directionY = 50 - this.getRandomIntInclusive(1,20);
+                str += `q${directionX} ${directionY},${x} ${y} t${x} ${y}`;
             }
         }
         return str;
