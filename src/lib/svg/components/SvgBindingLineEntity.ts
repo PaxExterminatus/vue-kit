@@ -71,7 +71,7 @@ export class SvgBindingLineEntity
                 y = this.linePoint(p.y, pr.y) / 2;
                 let directionX, directionY;
                 directionX = (p.x > pr.x ? -35 : 35) + this.getRandomIntInclusive(1,20);
-                directionY = 50 - this.getRandomIntInclusive(1,20);
+                directionY = 35 - this.getRandomIntInclusive(1,10);
                 str += `q${directionX} ${directionY},${x} ${y} t${x} ${y}`;
             }
         }
