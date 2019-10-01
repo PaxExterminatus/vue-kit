@@ -32,9 +32,11 @@ export class SvgBindingLineEntity
 
     }
 
-    get curvesBezierQuadratic () {
+    get curvesBezierQuadratic ()
+    {
         let str = '', x = 0, y = 0;
-        for (let i = 0; i < this.svgPoints.length; i++) {
+        for (let i = 0; i < this.svgPoints.length; i++)
+        {
             let p = this.svgPoints[i], pr;
             if (i === 0) {
                 str += `M${p.x} ${p.y} `;
@@ -43,6 +45,23 @@ export class SvgBindingLineEntity
                 x = this.linePoint(p.x, pr.x);
                 y = this.linePoint(p.y, pr.y);
                 str += `q${-50} ${100},${x} ${y} `;
+            }
+        }
+        return str;
+    }
+    get curvesBezierQuadraticDouble ()
+    {
+        let str = '', x = 0, y = 0;
+        for (let i = 0; i < this.svgPoints.length; i++)
+        {
+            let p = this.svgPoints[i], pr;
+            if (i === 0) {
+                str += `M${p.x} ${p.y} `;
+            } else {
+                pr = this.svgPoints[i - 1];
+                x = this.linePoint(p.x, pr.x) / 2;
+                y = this.linePoint(p.y, pr.y) / 2;
+                str += `q${-35} ${50},${x} ${y} t${x} ${y}`;
             }
         }
         return str;
@@ -90,6 +109,7 @@ export class SvgBindingLineEntity
     {
         //return this.path(this.linesStraight);
         //return this.circles;
-        return this.path(this.curvesBezierQuadratic);
+        //return this.path(this.curvesBezierQuadratic);
+        return this.path(this.curvesBezierQuadraticDouble);
     }
 }
