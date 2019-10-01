@@ -15,8 +15,6 @@ export class SvgBindingLineEntity
                 y: p.top - this.root.top + p.height / 2,
             });
         }
-
-        console.log(JSON.parse(JSON.stringify(this.svgPoints)));
     }
 
     circle(cx : number, cy : number)
@@ -29,7 +27,39 @@ export class SvgBindingLineEntity
         return `<path d="${vector}"/>`
     }
 
-    get htmlPoints()
+    bezierCurve ()
+    {
+
+    }
+
+    get curvesBezierQuadratic () {
+        let str = '', x = 0, y = 0;
+        for (let i = 0; i < this.svgPoints.length; i++) {
+            let p = this.svgPoints[i], pr;
+            if (i === 0) {
+                str += `M${p.x} ${p.y} `;
+            } else {
+                pr = this.svgPoints[i - 1];
+                x = this.linePoint(p.x, pr.x);
+                y = this.linePoint(p.y, pr.y);
+                str += `q${-50} ${100},${x} ${y} `;
+            }
+        }
+        return str;
+    }
+
+    get circles()
+    {
+        let str = '';
+        for (let i = 0; i < this.svgPoints.length; i++)
+        {
+            let p = this.svgPoints[i];
+            str += this.circle(p.x,p.y);
+        }
+        return str;
+    }
+
+    get linesStraight()
     {
         let str = '', x = 0, y = 0;
         for (let i = 0; i < this.svgPoints.length; i++)
@@ -42,11 +72,24 @@ export class SvgBindingLineEntity
             else
             {
                 pr = this.svgPoints[i-1];
-                x = p.x > pr.x ? p.x - pr.x : (pr.x - p.x) * -1;
-                y = p.y > pr.y ? p.y - pr.y : (pr.y - p.y) * -1;
+                x = this.linePoint(p.x, pr.x);
+                y = this.linePoint(p.y, pr.y);
                 str += `l${x} ${y} `;
             }
         }
-        return this.path(str);
+
+        return str;
+    }
+
+    private linePoint(current : number, prev : number)
+    {
+        return current > prev ? current - prev : (prev - current) * -1
+    }
+
+    get htmlPoints()
+    {
+        //return this.path(this.linesStraight);
+        //return this.circles;
+        return this.path(this.curvesBezierQuadratic);
     }
 }
