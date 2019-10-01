@@ -24,7 +24,7 @@ export class SvgBindingLineEntity
 
     path(vector : string)
     {
-        return `<path d="${vector}"/>`
+        return `<path d="${vector}" stroke-dasharray="5"/>`
     }
 
     bezierCurve ()

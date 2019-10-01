@@ -3,11 +3,9 @@
         <div id="icons01" class="layout-icons" ref="root">
             <svg-binding-line class="layout-lines" v-if="bindingLineProps" :opt="bindingLineProps"/>
             <svg-vector class="i01 icon-js" name="twitter"/>
-            <svg-vector class="i02 icon-js twitter-plus" :name="['twitter','plus']"/>
+            <svg-vector class="i02 icon-js " name="twitter"/>
             <svg-vector class="i03 icon-js " name="twitter"/>
             <svg-vector class="i01 icon-js " name="twitter"/>
-            <svg-vector class="i02 icon-js twitter-plus" :name="['twitter','plus']"/>
-            <svg-vector class="i03 icon-js twitter-plus" :name="['twitter','plus']"/>
         </div>
     </div>
 </template>
