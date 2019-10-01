@@ -1,11 +1,11 @@
 <template>
     <div class="page-svg-binding-lines">
-        <div id="icons01" class="layout-icons" ref="root">
+        <div id="icons" class="layout-icons" ref="icons">
             <svg-binding-line class="layout-lines" v-if="bindingLineProps" :opt="bindingLineProps"/>
             <svg-vector class="i01 icon-js" name="twitter"/>
-            <svg-vector class="i02 icon-js " name="twitter"/>
-            <svg-vector class="i01 icon-js " name="twitter"/>
-            <svg-vector class="i02 icon-js " name="twitter"/>
+            <svg-vector class="i02 icon-js" name="twitter"/>
+            <svg-vector class="i01 icon-js" name="twitter"/>
+            <svg-vector class="i02 icon-js" name="twitter"/>
         </div>
     </div>
 </template>
@@ -23,22 +23,25 @@ export default {
 
     mounted()
     {
-        let root = null, els = null,  points = [];
+        let points = [],
+            els = document.getElementsByClassName('icon-js'),
+            root = this.$refs.icons;
 
-        els = document.getElementsByClassName('icon-js');
-        root = this.$refs.root.getBoundingClientRect();
+        console.log(typeof root);
 
-        if (els)
-        {
-            [].forEach.call(els, el => {
-                points.push(el.getBoundingClientRect());
-            });
+        for(const el of els) {
+            points.push(el.getBoundingClientRect());
         }
 
-        if (root && points.length)
-        {
-            this.bindingLineProps = new SvgBindingLineProps({root, points});
-        }
+        this.bindingLineProps = new SvgBindingLineProps({
+            root: root.getBoundingClientRect(),
+            points,
+        });
+
+        // window.addEventListener('load', ()=>
+        // {
+        //
+        // });
     }
 }
 </script>
