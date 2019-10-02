@@ -1,4 +1,4 @@
-export class SvgBindingLineProps
+export class SvgBindingLineOpt
 {
     root: DOMRect;
     points: DOMRect[];
