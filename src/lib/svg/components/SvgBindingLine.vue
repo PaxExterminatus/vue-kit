@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import {resize} from 'lib/events/ResizeEvent'
 import {SvgBindingLineEntity} from './SvgBindingLineEntity'
 export default {
     props: {
@@ -15,18 +14,6 @@ export default {
             root: this.opt.root,
             points: this.opt.points,
         }),
-        resize: resize(),
     }},
-
-    methods: {
-        onResize()
-        {
-            console.log('onResize')
-        }
-    },
-
-    beforeDestroy(){
-        console.log('beforeDestroy');
-    }
 }
 </script>

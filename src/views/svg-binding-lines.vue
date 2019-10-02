@@ -1,7 +1,6 @@
 <template>
     <div class="page-svg-binding-lines">
-        <button @click="state = !state">CLOSE</button>
-        <div id="icons" class="layout-icons" ref="icons" v-if="state">
+        <div id="icons" class="layout-icons" ref="icons">
             <svg-binding-line class="layout-lines" v-if="bindingLineProps" :opt="bindingLineProps"/>
             <svg-vector class="i01 icon-js" name="twitter"/>
             <svg-vector class="i02 icon-js" name="twitter"/>
@@ -20,12 +19,10 @@ export default {
 
     data(){return{
         bindingLineProps : null,
-        state: true,
     }},
 
     mounted()
     {
-        console.log('mounted');
         let points = [],
             els = document.getElementsByClassName('icon-js'),
             root = this.$refs.icons;
@@ -38,14 +35,6 @@ export default {
             root: root.getBoundingClientRect(),
             points,
         });
-    },
-
-    beforeDestroy() {
-        console.log('beforeDestroy');
-    },
-
-    destroyed() {
-      console.log('destroyed');
     },
 }
 </script>
